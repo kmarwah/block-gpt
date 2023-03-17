@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Block-GPT</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        input.form-control {
+            width: 100%; /* Adjust the input width here */
+            max-width: 800px; /* Adjust the max input width here */
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5">
+            <h1 class="text-center mb-4">Block-GPT</h1>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <form method="post">
+                                <div class="mb-3">
+                                    <label for="user_prompt" class="form-label">Enter your prompt:</label>
+                                    <input type="text" class="form-control" name="user_prompt" maxlength="400">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="update_prompt" class="form-label">Enter your update prompt:</label>
+                                    <input type="text" class="form-control" name="update_prompt" maxlength="400">
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <input type="submit" value="Generate block diagram" class="btn btn-primary">
+                                    <input type="submit" value="Clear API Messages" name="action" class="btn btn-danger">
+                                    <a href="{{ url_for('download_code') }}" class="btn btn-secondary">Download .py file</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if image_b64 %}
+        <div class="text-center">
+            <img src="data:image/png;base64,{{ image_b64 }}" alt="Generated Block Diagram" class="img-fluid">
+        </div>
+        {% endif %}
+
+        <footer class="mt-5">
+            <div class="container text-center">
+                <p>Created by Kabir Marwah</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+

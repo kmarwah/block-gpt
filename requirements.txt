@@ -1,0 +1,6 @@
+flask
+openai
+graphviz
+gunicorn
+google-cloud-secret-manager
+google-cloud-logging
